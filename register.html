@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - VOSHES</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-gradient-primary" style="background: rgb(119,165,255);">
+    <div class="container" style="margin-bottom: -50px;">
+        <div class="card shadow-lg o-hidden border-0 my-5" style="background: rgba(255,255,255,0.48);border-radius: 50px;">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-flex">
+                        <div class="flex-grow-1 bg-register-image" data-bss-hover-animate="bounce" style="box-shadow: -1px 0px 18px 3px rgb(44,44,44);background: url(&quot;assets/img/stud-reg.jpg&quot;) center;"></div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 style="font-family: ABeeZee, sans-serif;font-size: 24px;color: rgb(24,24,24);padding-bottom: 8px;"><strong>Create your Account!</strong></h1>
+                            </div>
+                            <form class="user" action="insert_student.php" method="post">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 col-xl-12 mb-3 mb-sm-0"><input class="form-control" type="number" id="exampleIdNumber" style="border-radius: 160px;height: 50px;font-size: 12.8px;color: rgb(33,33,34);" placeholder="School ID Number" required="" name="id"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName-1" placeholder="First Name" name="first_name" style="color: rgb(33,33,34);" required=""></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName-2" placeholder="Last Name" name="last_name" style="color: rgb(33,33,34);" required=""></div>
+                                </div>
+                                <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email" style="color: rgb(33,33,34);"></div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="password" placeholder="Password" name="password" style="color: rgb(33,33,34);" minlength="8" required=""></div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="confirm_password" placeholder="Repeat Password" name="password_repeat" onchange="validate()" style="color: rgb(33,33,34);" minlength="8" required=""></div>
+                                </div>
+                                <button class="btn btn-primary btn-block text-white btn-user" type="submit" name="submit">Register Account</button>
+                                <hr>
+                                <hr>
+                            </form>
+                            <div class="text-center"><a class="small" href="forgot-password.html" style="border-color: rgb(16,40,109);color: rgb(10,37,119);"><strong>Forgot Password?</strong></a></div>
+                            <div class="text-center"><a class="small" href="index.html" style="color: rgb(211,11,11);border-color: rgb(211,11,11);border-top-color: rgb(78,;border-right-color: 115,;border-bottom-color: 223);border-left-color: 115,;"><strong>Already have an account? Login!</strong></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h1 style="text-align: center;font-size: 11px;color: rgb(255,255,255);margin-bottom: 0px;"><br>Copyright © VOSHES 2021<br><br></h1>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/smart-forms.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript">
+
+    
+
+    function validate(){
+        let p1 = document.getElementById('password').value;
+        let p2 = document.getElementById('confirm_password').value;
+
+        if (p1 != null && p2 != null) {
+            if(p1 != p2){
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Password mismatch'
+                })
+                document.getElementById('password').value = null;
+                document.getElementById('confirm_password').value = null;
+
+                document.getElementById('password').classList.add('border-danger');
+                document.getElementById('confirm_password').classList.add('border-danger');
+            }
+            else{
+                document.getElementById('password').classList.remove('border-danger');
+                document.getElementById('confirm_password').classList.remove('border-danger');
+            }
+        }
+    }
+
+</script>
+
+</html>
